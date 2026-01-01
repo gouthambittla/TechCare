@@ -1,128 +1,256 @@
-Tech Care – Frontend (React Native / Expo)
-Overview
+# 🛠️ Tech Care – Hyperlocal Electronics Repair Platform
 
-The Tech Care Frontend is a React Native (Expo) application that powers both:
+Tech Care is a **hyperlocal, managed marketplace** that connects customers facing electronic device issues with **verified, nearby technicians**.
+The platform focuses on **trust, speed, and transparency** to modernize the fragmented electronics repair ecosystem in India.
 
-Customer App – raise repair requests & track technicians
+---
 
-Technician App – accept jobs, upload proof, manage work
+## 🚀 Core Value Proposition
 
-The app is designed for speed, trust, and real-time interaction.
+* **Trust**
 
-Key Features
-Customer App
+  * Standardized pricing
+  * Digital *Before & After* photo verification
+  * Secure device handover using OTP
 
-Mobile Number + OTP authentication (mocked)
+* **Speed**
 
-Smart diagnostics wizard
+  * GPS-based technician matching
+  * Average response time target: **< 2 hours**
 
-Fixed-price & diagnosis-based booking
+* **Transparency**
 
-Real-time technician tracking
+  * Live technician tracking
+  * Digital job cards
+  * Clear service status updates
 
-SOS & masked calling
+---
 
-Technician App
+## 👥 User Personas
 
-Digital KYC onboarding (mock)
+### 1. Customer
 
-Geo-fenced job alerts
+**Rohan – Busy Professional**
 
-Digital Job Card
+* Wants quick repairs without visiting shops
+* Concerned about overpricing and part theft
 
-OTP-based device handover
+### 2. Technician
 
-Mandatory before/after photo capture
+**Suresh – Skilled Technician**
 
-Wallet & payout view
+* Wants consistent job flow and predictable income
+* Limited to neighborhood reach today
 
-Tech Stack
+### 3. Admin
 
+**Operations Lead**
+
+* Needs real-time visibility into jobs
+* Handles disputes, verification, and commissions
+
+---
+
+## 📱 Applications Overview
+
+### Customer App
+
+* Mobile Number + OTP login
+* Smart diagnostics wizard
+* Fixed-price & diagnosis-based bookings
+* Real-time technician tracking
+* SOS & masked calling for safety
+
+### Technician App (Office App)
+
+* Digital KYC & skill onboarding
+* Geo-fenced job alerts
+* Digital Job Card with:
+
+  * GPS-based check-in
+  * OTP-based device custody
+  * Mandatory in-app photo capture (Before/After)
+* Wallet & payout management
+
+### Admin Dashboard
+
+* Live operations map (God View)
+* Technician KYC verification
+* Dispute resolution (Before vs After)
+* Commission configuration engine
+
+---
+
+## 🧠 System Architecture
+
+```
 React Native (Expo)
+        |
+        |  REST + Socket.io
+        |
+Node.js (Express)
+        |
+PostgreSQL
+        |
+Cloudinary / AWS S3
+```
 
-TypeScript
+---
 
-Expo Camera
+## 🧑‍💻 Tech Stack
 
-Socket.io Client
+### Mobile Apps
 
-React Navigation
+* **React Native (Expo)**
+* TypeScript
+* Expo Camera
+* Socket.io Client
 
-Axios
+### Backend
 
-Folder Structure (Planned)
-apps/techcare-fe/
-├── src/
-│   ├── components/
-│   ├── screens/
-│   │   ├── auth/
-│   │   ├── customer/
-│   │   └── technician/
-│   ├── navigation/
-│   ├── services/
-│   │   ├── api.ts
-│   │   └── socket.ts
-│   ├── hooks/
-│   ├── utils/
-│   └── types/
-├── assets/
-├── app.json
+* Node.js
+* Express.js
+* Socket.io
+* JWT Authentication
+
+### Database
+
+* PostgreSQL (Local / Supabase)
+
+### Storage
+
+* Cloudinary (Phase 1)
+* AWS S3 (Phase 2)
+
+### Maps
+
+* Google Maps API (Phase 1)
+* MapmyIndia (Phase 2 – cost optimization)
+
+---
+
+## 🔁 Core Service Flow
+
+1. Customer raises a repair request
+2. Job is broadcast to nearby technicians
+3. Technician accepts the job
+4. GPS-based arrival verification
+5. OTP-based device handover
+6. Before repair photo capture
+7. Repair completion
+8. After repair photo capture
+9. Job completion & payment
+
+---
+
+## 🏃 Agile Sprint Roadmap
+
+### Phase 1 – Backbone (Weeks 1–2)
+
+* Project setup (Expo + Node.js)
+* PostgreSQL schema
+* Mock OTP authentication
+* JWT-based session handling
+
+### Phase 2 – Supply Side (Weeks 3–4)
+
+* Technician dashboard
+* Job listing & acceptance
+* Trust Engine (Camera + image upload)
+* Job completion rules
+
+### Phase 3 – Demand & Matching (Weeks 5–6)
+
+* Customer booking flow
+* Diagnostics wizard
+* Socket-based real-time updates
+* Mock payments & notifications
+
+---
+
+## 📂 Repository Structure (Planned)
+
+```
+techcare/
+├── apps/
+│   ├── customer-app/
+│   └── technician-app/
+├── backend/
+│   ├── src/
+│   │   ├── controllers/
+│   │   ├── routes/
+│   │   ├── services/
+│   │   ├── sockets/
+│   │   └── models/
+│   └── index.ts
+├── database/
+│   └── migrations/
+├── docs/
 └── README.md
+```
 
-Local Setup
-Prerequisites
+---
 
-Node.js (>= 18)
+## ⚙️ Local Development Setup
 
-Expo CLI
+### 1. Frontend (Expo)
 
-Expo Go app (Android / iOS)
-
-Install & Run
+```bash
 npm install
 npx expo start
+```
 
+### 2. Backend
 
-Scan the QR code using Expo Go.
+```bash
+npm install
+npm run dev
+```
 
-Authentication (MVP)
+### 3. Database
 
-OTP is mocked as 1234
+* PostgreSQL (Local) **or**
+* Supabase (Free Tier)
 
-JWT token received from backend
+---
 
-Phone number acts as primary identifier
+## 🔐 Authentication (Mocked for MVP)
 
-Camera & Proof Capture
+* OTP is hardcoded as `1234`
+* JWT tokens are real
+* Phone number-based identity simulation
 
-Uses Expo Camera
+---
 
-Gallery uploads are blocked
+## 🎯 Project Goals
 
-Images uploaded to Cloudinary
+* Demonstrate **real-world system design**
+* Showcase **trust-first product thinking**
+* Build a **portfolio-grade, scalable app**
+* Follow **Agile & Sprint-based execution**
 
-URLs stored in backend
+---
 
-Real-Time Updates
+## 📌 Status
 
-Socket.io used for:
+🚧 **Actively under development (MVP Phase)**
 
-New job alerts
+---
 
-Job status updates
+## 👨‍💻 Author
 
-Technician live tracking
+**Goutham Bittla**
+Frontend & Full-Stack Engineer
+React Native | Node.js | Real-time Systems
 
-Goal of Frontend
+---
 
-Fast MVP delivery
+If you want, next I can:
 
-Trust-first UX
+* Split this into **FE + BE README**
+* Create a **System Design diagram**
+* Generate **DB schema (Postgres)**
+* Create **Socket.io event contracts**
+* Prepare a **resume-ready project explanation**
 
-Portfolio-ready React Native app
-
-Scalable structure for production
-
-Author
-
-Goutham Bittla
+Just tell me 👍
