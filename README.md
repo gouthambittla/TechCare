@@ -242,15 +242,3 @@ npm run dev
 **Goutham Bittla**
 Frontend & Full-Stack Engineer
 React Native | Node.js | Real-time Systems
-
----
-
-If you want, next I can:
-
-* Split this into **FE + BE README**
-* Create a **System Design diagram**
-* Generate **DB schema (Postgres)**
-* Create **Socket.io event contracts**
-* Prepare a **resume-ready project explanation**
-
-Just tell me 👍
